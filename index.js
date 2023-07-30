@@ -1,11 +1,11 @@
-// TODO: Include packages needed for this application
+// Requiring inquirer and fs
 const inquirer = require('inquirer');
 const fs = require('fs');
 
 function getLicenseBadgeURL(license) {
     return `https://img.shields.io/badge/license-${encodeURIComponent(license)}-brightgreen`;
   }
-// TODO: Create an array of questions for user input
+// User input array
 const questions = [
     {
         type: 'input',
@@ -61,6 +61,7 @@ const questions = [
     },
 ];
 
+// This section inputs a short description of the license picked from the array above onto the License Description on the README.md
 const licenseExplanations = {
     'MIT License': 'A permissive license that allows users to do almost anything with the code as long as they provide attribution back to the author and don’t hold the author liable. This license is widely used for its simplicity and permissiveness.',
     'Apache License 2.0': 'A permissive license that allows users to use, modify, and distribute the licensed software. The Apache License 2.0 also provides explicit protection against patent infringement claims.',
@@ -69,12 +70,12 @@ const licenseExplanations = {
     'None': 'No license has been chosen for this project',
 };
 
-// TODO: Create a function to write README file
+// This section writes to the README.md
 function writeToFile(fileName, data) {
     fs.writeFileSync(fileName, data);
 }
 
-// TODO: Create a function to initialize app
+// This section initializes the app and fills required fields
 function init() {
     inquirer
         .prompt(questions)
@@ -126,5 +127,5 @@ For any questions or concerns, please reach out to me through the following cont
         });
 }
 
-// Function call to initialize app
+// This function calls the start of the app
 init();
