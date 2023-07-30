@@ -51,8 +51,13 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'questions',
-        message: 'Enter frequently asked questions and their answers:',
+        name: 'githubUsername',
+        message: 'Enter your Github username:',
+    },
+    {
+        type: 'input',
+        name: 'email',
+        message: 'Enter your contact email address:',
     },
 ];
 
@@ -108,7 +113,10 @@ ${answers.contributing}
 ${answers.tests}
 
 ## Questions
-${answers.questions}
+For any questions or concerns, please reach out to me through the following contact information:
+
+- Github: [${answers.githubUsername}](https://github.com/${answers.githubUsername})
+- Email: ${answers.email}
 `;
             writeToFile('README.md', readmeContent);
             console.log('README.md created successfully');
